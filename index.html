@@ -522,19 +522,20 @@
                 <h2 class="font-esthetic mb-4" style="font-size: 2.5rem;">Rafiq &amp; Rara</h2>
              <body>
     <h2>Selamat datang, <span id="guest-name"></span>!</h2>
-
-    <script>
-        function getQueryParam(param) {
+<script>
+        // Fungsi untuk mengambil parameter dari URL
+        function getParameterByName(name) {
             const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
+            return urlParams.get(name);
         }
 
-        const guestName = getQueryParam("name");
-
+        // Mengambil nama tamu dari URL
+        const guestName = getParameterByName('name');
         if (guestName) {
-            document.getElementById("guest-name").textContent = decodeURIComponent(guestName);
+            // Menampilkan nama tamu di halaman
+            document.getElementById('greeting').innerHTML = `Selamat datang, ${guestName}!`;
         } else {
-            document.getElementById("guest-name").textContent = "Tamu Undangan";
+            document.getElementById('greeting').innerHTML = 'Selamat datang di undangan pernikahan kami!';
         }
     </script>
 </body>
