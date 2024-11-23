@@ -73,6 +73,24 @@
 <!-- If not using comments, you can remove the data-key and data-url attributes -->
 <!-- Data theme ['auto', 'dark', 'light'] -->
 
+<body>
+    <h2>Selamat datang, <span id="guest-name"></span>!</h2>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        const guestName = getQueryParam("name");
+
+        if (guestName) {
+            document.getElementById("guest-name").textContent = decodeURIComponent(guestName);
+        } else {
+            document.getElementById("guest-name").textContent = "Tamu Undangan";
+        }
+    </script>
+</body>
 <body data-key="bfb9cfea33ab7ae21a315fbd6f065a815d3e20ff2f007aa2ca" data-url="https://api.ulems.my.id/" data-theme="auto">
 
     <!-- Navbar Bottom -->
