@@ -14,7 +14,29 @@ export const comment = (() => {
     let user = null;
     let tracker = null;
     let showHide = null;
-
+const resetComments = () => {
+        // Ambil elemen kontainer komentar
+        const comments = document.getElementById('comments');
+    
+        // Periksa apakah elemen ada
+        if (comments) {
+            // Kosongkan semua isi elemen
+            comments.innerHTML = '';
+        }
+    
+        // Jika ada pagination, reset juga
+        if (pagination && typeof pagination.reset === 'function') {
+            pagination.reset();
+        }
+    
+        // Reset data status komentar tersembunyi dan terlihat
+        if (showHide) {
+            showHide.set('hidden', []);
+            showHide.set('show', []);
+        }
+    
+        console.log('Comments have been reset.');
+    };
     const changeButton = (id, disabled) => {
         const buttonMethod = ['reply', 'edit', 'remove'];
 
