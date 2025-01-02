@@ -14,20 +14,16 @@ export const comment = (() => {
     let user = null;
     let tracker = null;
     let showHide = null;
-const resetComments = () => {
-    // Ambil elemen kontainer komentar
+window.resetComments = () => {
     const comments = document.getElementById('comments');
 
-    // Periksa apakah elemen ada
     if (comments) {
-        // Kosongkan semua isi elemen
-        comments.innerHTML = ''; 
+        comments.innerHTML = ''; // Kosongkan isi elemen
         console.log('Comments reset successfully.');
     } else {
         console.error('Element #comments not found!');
     }
 
-    // Jika ada pagination, reset juga
     if (pagination && typeof pagination.reset === 'function') {
         pagination.reset();
         console.log('Pagination reset successfully.');
@@ -35,7 +31,6 @@ const resetComments = () => {
         console.warn('Pagination is not defined or no reset method found.');
     }
 
-    // Reset data status tersembunyi dan terlihat
     if (showHide) {
         showHide.set('hidden', []);
         showHide.set('show', []);
@@ -44,6 +39,7 @@ const resetComments = () => {
         console.warn('showHide is not defined.');
     }
 };
+
     const changeButton = (id, disabled) => {
         const buttonMethod = ['reply', 'edit', 'remove'];
 
