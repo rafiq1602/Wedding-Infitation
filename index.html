@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="id" data-bs-theme="dark">
-
+<html lang="id">
 <head>
     <!-- Common Tag -->
     <meta charset="utf-8">
@@ -421,24 +421,24 @@
         </section>
 
         <!-- Comment -->
-        <section class="container my-0 pb-0 pt-2" id="comment">
+          <!-- tambahan code comment baru -->
+<body>
+    <h1>Komentar</h1>
+    <form action="submit_comment.php" method="POST">
+        <input type="text" name="name" placeholder="Nama" required>
+        <select name="attendance" required>
+            <option value="">Pilih Presensi Kehadiran</option>
+            <option value="Hadir">Hadir</option>
+            <option value="Tidak Hadir">Tidak Hadir</option>
+            <option value="Izin">Izin</option>
+        </select>
+        <textarea name="comment" placeholder="Komentar" required></textarea>
+       
+    </form>
 
-            <div class="border rounded-4 shadow p-3 my-2">
-                <h2 class="font-esthetic text-center mt-2 mb-4" style="font-size: 2.5rem;">Ucapan &amp; Doa</h2>
-
-                <div class="mb-3">
-                    <label for="form-name" class="form-label"><i class="fa-solid fa-person me-1"></i>Nama</label>
-                    <input type="text" class="form-control shadow-sm rounded-4" id="form-name" placeholder="Isikan Nama Anda">
-                </div>
-
-                <div class="mb-3">
-                    <label for="form-presence" class="form-label"><i class="fa-solid fa-person-circle-question me-1"></i>Presensi</label>
-                    <select class="form-select shadow-sm rounded-4" id="form-presence">
-                        <option value="0" selected>Konfirmasi Presensi</option>
-                        <option value="1">Datang</option>
-                        <option value="2">Berhalangan</option>
-                    </select>
-                </div>
+    <h2>Daftar Komentar</h2>
+    <?php include 'display_comments.php'; ?>
+</body>
 
                 <div class="mb-3">
                     <div id="information" class="alert alert-info alert-dismissible fade show rounded-4" role="alert">
@@ -454,11 +454,7 @@
                     <textarea class="form-control shadow-sm rounded-4" id="form-comment" rows="4" placeholder="Tulis Ucapan dan Doa"></textarea>
                 </div>
 
-                <div class="d-grid">
-                    <button class="btn btn-primary btn-sm rounded-4 shadow m-1" onclick="comment.send(this)">
-                        <i class="fa-solid fa-paper-plane me-1"></i>Send
-                    </button>
-                </div>
+                 <button type="submit">Kirim</button>
             </div>
 
            
